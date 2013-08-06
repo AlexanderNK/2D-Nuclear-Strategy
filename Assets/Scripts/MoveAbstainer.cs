@@ -7,7 +7,7 @@ public class MoveAbstainer : MonoBehaviour
 	public float speed = 10f;
 	public float rotationSpeed = 2f;
 	private GameManager gm;
-	private int cur = 0;
+	public int cur = 0;
 
 	void Start ()
 	{

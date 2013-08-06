@@ -30,10 +30,10 @@ public class MoveAlcoholics : MonoBehaviour
 		}
 		
 		CheckCollision();
-		/*if (gm.Abstainer.transform.position.sqrMagnitude - nextStep.sqrMagnitude < 20) {
-			Destroy (gameObject);
-		} */
-		
+		/*if (Input.GetButtonDown ("Fire1"))) {
+			Fire ();	
+		}
+		*/
 	}
 	
 	void CheckCollision ()
@@ -41,6 +41,8 @@ public class MoveAlcoholics : MonoBehaviour
 		if (Vector3.Distance (gm.Abstainer.transform.position, transform.position) < MIN_MEET_DISTANCE) {
 			gm.alcoholics.Remove (this);
 			Destroy (gameObject);
+			gm.Abstainer.cur -= 3;
 		}
+		
 	}
 }
