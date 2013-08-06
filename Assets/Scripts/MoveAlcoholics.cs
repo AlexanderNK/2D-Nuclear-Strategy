@@ -11,7 +11,6 @@ public class MoveAlcoholics : MonoBehaviour {
 	void Start ()
 	{
 		gm = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<GameManager> ();
-            
 	}
        
 	void Update ()	{
@@ -26,5 +25,7 @@ public class MoveAlcoholics : MonoBehaviour {
 				transform.position += nextStep;
 			}
 		}
+		if () {
+			Destroy (gameObject);
 	}
 }
