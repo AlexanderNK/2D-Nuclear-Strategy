@@ -16,7 +16,7 @@ public class RoadObjectInputHandler : MonoBehaviour {
     
     if (Input.GetMouseButtonDown(0))
     {
-			Debug.Log ("88888888888888888 " + name);
+			
     }
 }
 }

@@ -8,10 +8,12 @@ public class MoveAbstainer : MonoBehaviour
 	public float rotationSpeed = 2f;
 	private GameManager gm;
 	public int cur = 0;
+	private int i = 0;
 
 	void Start ()
 	{
 		gm = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<GameManager> ();
+		gm.checkDir = true;
             
 	}
        
@@ -39,10 +41,24 @@ public class MoveAbstainer : MonoBehaviour
 			Vector3 dest = gm.waypoints [cur].position;
 			Vector3 dir = dest - transform.position;
 			Vector3 nextStep = dir.normalized * speed * Time.deltaTime;
+			
+			
 			if (dir.sqrMagnitude < nextStep.sqrMagnitude){
-				cur++;
-			} else {
+				if (gm.checkDir ){
+					cur++;
+				} else {
+					cur--;
+					if(i>1){
+						gm.checkDir = true;
+						i = 0;
+					} else{
+						i++;
+					}
+				}
+			}
+			else {
 				transform.position += nextStep;
+				
 			}
 		}
 	}

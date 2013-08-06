@@ -7,7 +7,7 @@ public class MoveAlcoholics : MonoBehaviour
 	public float speed = 10f;
 	public float rotationSpeed = 2f;
 	private GameManager gm;
-	private int cur = 24;
+	private int cur = 23;
 
 	void Start ()
 	{
@@ -41,7 +41,8 @@ public class MoveAlcoholics : MonoBehaviour
 		if (Vector3.Distance (gm.Abstainer.transform.position, transform.position) < MIN_MEET_DISTANCE) {
 			gm.alcoholics.Remove (this);
 			Destroy (gameObject);
-			gm.Abstainer.cur -= 3;
+			gm.checkDir = false; 
+			
 		}
 		
 	}
