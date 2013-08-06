@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
 	
 	public Transform[] waypoints;
 	private MoveAbstainer abstainer;
+	public List<MoveAlcoholics> alcoholics;
 	
 	public MoveAbstainer Abstainer {
 		get {
