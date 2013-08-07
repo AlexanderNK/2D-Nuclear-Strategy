@@ -30,10 +30,7 @@ public class MoveAlcoholics : MonoBehaviour
 		}
 		
 		CheckCollision ();
-		/*if (Input.GetButtonDown ("Fire1"))) {
-			Fire ();	
-		}
-		*/
+	
 	}
 	
 	void CheckCollision ()

@@ -6,6 +6,7 @@ public class MoveAbstainer : MonoBehaviour
 {
        
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public float speed = 10f;
 	private GameManager gm;
 	private int cur = 0;
@@ -25,6 +26,8 @@ public class MoveAbstainer : MonoBehaviour
 		SetDirection (true);
 	}
 =======
+=======
+>>>>>>> 2d45d683b225968072c30d1be90ee785aade8615
         public float speed = 10f;
         public float rotationSpeed = 2f;
         private GameManager gm;
@@ -37,6 +40,9 @@ public class MoveAbstainer : MonoBehaviour
                 gm.checkDir = true;
            
         }
+<<<<<<< HEAD
+>>>>>>> 2d45d683b225968072c30d1be90ee785aade8615
+=======
 >>>>>>> 2d45d683b225968072c30d1be90ee785aade8615
        
         void Update ()
@@ -52,6 +58,7 @@ public class MoveAbstainer : MonoBehaviour
                        
                 }              
                 if(Input.GetKey("a")){
+<<<<<<< HEAD
 <<<<<<< HEAD
                 	transform.position -= new Vector3(60f*Time.deltaTime, 0, 0);
 				}
@@ -110,6 +117,8 @@ public class MoveAbstainer : MonoBehaviour
 		}
 	}
 =======
+=======
+>>>>>>> 2d45d683b225968072c30d1be90ee785aade8615
                         transform.position -= new Vector3(60f*Time.deltaTime, 0, 0);
                                 }
                                 if(Input.GetKey("d")){
@@ -145,5 +154,8 @@ public class MoveAbstainer : MonoBehaviour
                         }
                 }
         }
+<<<<<<< HEAD
+>>>>>>> 2d45d683b225968072c30d1be90ee785aade8615
+=======
 >>>>>>> 2d45d683b225968072c30d1be90ee785aade8615
 }
