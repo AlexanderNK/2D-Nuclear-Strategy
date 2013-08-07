@@ -3,9 +3,11 @@ using System.Collections;
 
 public class Factory : MonoBehaviour {
 
+	public GameObject alcoholic;
+	private GameManager gm;
 	
 	void Start () {
-	
+		gm = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<GameManager> ();
 	}
 	
 	
@@ -17,6 +19,6 @@ public class Factory : MonoBehaviour {
 	}
 	
 	void CreateAlcoholics (){
-		// GameObject newAlcoholic = Instantiate (obstaclePrefab, new Vector3 (Random.Range (-3, 4), 2,  + 70), transform.rotation) as GameObject;
+		 GameObject newAlcoholic = Instantiate (alcoholic, gm.waypoints[gm.waypoints.Length-1].position,Quaternion.identity) as GameObject;
 	}
 }

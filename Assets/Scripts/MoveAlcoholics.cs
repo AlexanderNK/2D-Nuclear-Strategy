@@ -5,14 +5,14 @@ public class MoveAlcoholics : MonoBehaviour
 {
 	public const float MIN_MEET_DISTANCE = 30f;
 	public float speed = 10f;
-	public float rotationSpeed = 2f;
 	private GameManager gm;
-	private int cur = 23;
+	private int cur;
 
 	void Start ()
 	{
 		gm = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<GameManager> ();
 		gm.alcoholics.Add (this);
+		cur = gm.waypoints.Length-2;
 	}
        
 	void Update ()
