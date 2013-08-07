@@ -5,16 +5,22 @@ public class MoveAbstainer : MonoBehaviour
 {
        
 	public float speed = 10f;
-	public float rotationSpeed = 2f;
 	private GameManager gm;
-	public int cur = 0;
-	private int i = 0;
+	private int cur = 0;
+	public bool isMovingForward;
+	/// <summary>
+	/// How long is Abstainer moves back.
+	/// </summary>
+	public float backMovingTime;
+	/// <summary>
+	/// Last time when abstainer started moving back
+	/// </summary>
+	private float lastBackMoveTime;
 
 	void Start ()
 	{
 		gm = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<GameManager> ();
-		gm.checkDir = true;
-            
+		SetDirection (true);
 	}
        
 	void Update ()
@@ -42,24 +48,48 @@ public class MoveAbstainer : MonoBehaviour
 			Vector3 dir = dest - transform.position;
 			Vector3 nextStep = dir.normalized * speed * Time.deltaTime;
 			
-			
-			if (dir.sqrMagnitude < nextStep.sqrMagnitude){
-				if (gm.checkDir ){
+			if (dir.sqrMagnitude < nextStep.sqrMagnitude) {
+				if (isMovingForward) {
 					cur++;
 				} else {
 					cur--;
-					if(i>1){
-						gm.checkDir = true;
-						i = 0;
-					} else{
-						i++;
-					}
+				}
+			} else {
+				if(cur>0){
+					transform.position += nextStep;
 				}
 			}
-			else {
-				transform.position += nextStep;
-				
+		}
+		
+		if (!isMovingForward) {
+			if (lastBackMoveTime + backMovingTime < Time.time) {
+				SetDirection (true);
 			}
+		}
+	}
+	
+	/// <summary>
+	/// Sets the direction.
+	/// </summary>
+	/// <param name='isForward'>
+	/// Is forward direction.
+	/// </param>
+	public void SetDirection (bool isForward)
+	{
+		// If we really change direction
+		if (isForward != isMovingForward) {
+			// Fall back to previous waypoint
+			if (isForward) {
+				cur++;
+			} else {
+				cur--;
+			}
+			isMovingForward = isForward;
+		}
+		
+		// Save time when we was send backward
+		if (!isForward) {
+			lastBackMoveTime = Time.time;
 		}
 	}
 }

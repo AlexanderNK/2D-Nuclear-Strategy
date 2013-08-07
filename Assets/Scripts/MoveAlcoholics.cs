@@ -12,7 +12,7 @@ public class MoveAlcoholics : MonoBehaviour
 	{
 		gm = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<GameManager> ();
 		gm.alcoholics.Add (this);
-		cur = gm.waypoints.Length-2;
+		cur = gm.waypoints.Length - 2;
 	}
        
 	void Update ()
@@ -29,7 +29,7 @@ public class MoveAlcoholics : MonoBehaviour
 			}
 		}
 		
-		CheckCollision();
+		CheckCollision ();
 		/*if (Input.GetButtonDown ("Fire1"))) {
 			Fire ();	
 		}
@@ -39,10 +39,9 @@ public class MoveAlcoholics : MonoBehaviour
 	void CheckCollision ()
 	{
 		if (Vector3.Distance (gm.Abstainer.transform.position, transform.position) < MIN_MEET_DISTANCE) {
+			gm.Abstainer.SetDirection (false); 
 			gm.alcoholics.Remove (this);
 			Destroy (gameObject);
-			gm.checkDir = false; 
-			
 		}
 		
 	}
