@@ -3,24 +3,25 @@ using System.Collections;
 
 public class Factory : MonoBehaviour {
 	
-	public const int ALCO = 20;
+	public const int ALC = 20;
 	public GameObject alcoholic;
 	private GameManager gm;
-	
+	OTSprite myGraphics;
 	void Start () {
 		gm = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<GameManager> ();
+		myGraphics = transform.GetComponentInChildren<OTSprite> ();
 	}
 	
 	
 	void Update () {
-		if (Input.GetMouseButtonDown(0)&& gm.alco>ALCO){
+		if (myGraphics.clicked && Input.GetMouseButtonDown(0)&& gm.AlcoholAmount>=ALC){
 			CreateAlcoholics ();
 		}
-		
+		gm.alcoholAmount += Time.deltaTime;
 	}
 	
 	void CreateAlcoholics (){
 		GameObject newAlcoholic = Instantiate (alcoholic, gm.waypoints[gm.waypoints.Length-1].position,Quaternion.identity) as GameObject;
-		gm.alco-=ALCO;
+		gm.alcoholAmount-=ALC;
 	}
 }
