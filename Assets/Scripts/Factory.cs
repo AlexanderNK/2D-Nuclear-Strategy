@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Factory : MonoBehaviour {
-	
+	public int men = 9;
 	public const int ALC = 20;
 	public GameObject alcoholic;
 	private GameManager gm;
@@ -17,11 +17,12 @@ public class Factory : MonoBehaviour {
 		if (myGraphics.clicked && Input.GetMouseButtonDown(0)&& gm.AlcoholAmount>=ALC){
 			CreateAlcoholics ();
 		}
-		gm.alcoholAmount += Time.deltaTime;
+		gm.alcoholAmount += Time.deltaTime * men;
 	}
 	
 	void CreateAlcoholics (){
 		GameObject newAlcoholic = Instantiate (alcoholic, gm.waypoints[gm.waypoints.Length-1].position,Quaternion.identity) as GameObject;
 		gm.alcoholAmount-=ALC;
+		men -=1;
 	}
 }
