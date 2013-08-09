@@ -23,6 +23,8 @@ public class Factory : MonoBehaviour {
 	void CreateAlcoholics (){
 		GameObject newAlcoholic = Instantiate (alcoholic, gm.waypoints[gm.waypoints.Length-1].position,Quaternion.identity) as GameObject;
 		gm.alcoholAmount-=ALC;
+		if(men >1){
 		men -=1;
+		}
 	}
 }
