@@ -42,6 +42,7 @@ public class MoveAlcoholics : MonoBehaviour
 			gm.Abstainer.SetDirection (false); 
 			gm.alcoholics.Remove (this);
 			Destroy (gameObject);
+			gm.men++;
 		}
 		
 	}

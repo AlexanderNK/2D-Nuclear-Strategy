@@ -66,7 +66,11 @@ public class MoveAbstainer : MonoBehaviour
 				SetDirection (true);
 			}
 		}
-	}
+		if(cur == gm.waypoints.Length-1){
+			Application.LoadLevel("Game over");
+		}
+	} 
+	
 	
 	/// <summary>
 	/// Sets the direction.
