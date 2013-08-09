@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
@@ -10,38 +10,33 @@ public class GameManager : MonoBehaviour
 	public float alcoholAmount = 100f;
 	public float alcoBar;
 	public int men = 9;
+	public OTCircleSprite sun;
+	public float dayLength;
        
 	public int AlcoholAmount {
 		get {
 			return Mathf.FloorToInt (alcoholAmount);
 		}
 	}
-	
 
 	void Start ()
 	{
-		alcoBar = Screen.width / 2;
+		alcoBar = Screen.width * 0.25f;
 	}
 	
-	//void Update(){
-	//             addalcoBar(1);
-	//}
+	void Update ()
+	{
+		sun.fillFactor = 1 - Time.time / dayLength;
+		if (Time.time > dayLength) {
+			Application.LoadLevel ("You win");
+		}
+	}
 	
 	void OnGUI ()
 	{
-		GUI.Box (new Rect (10, 10, alcoBar - 10, 20), "Alcohol "+ AlcoholAmount.ToString ());
-		GUI.Box (new Rect (210, 10,alcoBar - 20, 20) ,"Time " +TimeT.ToString());
+		GUI.Box (new Rect (10, 10, alcoBar - 10, 20), "Alcohol " + AlcoholAmount.ToString ());
 	}
-	public int TimeT {
-		get {
-			int i = Mathf.FloorToInt (60-Time.time);
-			if (i<=0){
-				Application.LoadLevel("You win");
-			}
-			return i;
-		}
-	}
-
+	
 	public MoveAbstainer Abstainer {
 		get {
 			if (abstainer == null) {
